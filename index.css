@@ -1,0 +1,104 @@
+body{
+    background-color: #f0f0eb;
+}
+
+#main{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+}
+.div-form{
+    width:20%;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+.div-table{
+    width:80%;
+    border: 1px solid black;    
+    display: flex;
+    flex-direction: column;
+}
+.div-form   p{
+    font-size: 28px;
+    color: #4f5e67;
+    font-weight: bold;
+    margin-left: 20px;
+}
+input{
+    display: block;
+    background-color: white ;
+    margin-top: 15px;
+    margin-left: 20px;
+    border:1px solid #cccdca;
+    height: 20px;
+    width: 240px;
+
+}
+.radio{
+    width: 15px;
+    margin-top: 0px;
+}
+.checkbox{
+    width: 15px;
+}
+
+label{
+display: block;
+margin-top: 15px;
+margin-left: 20px;
+}
+
+#gender{
+    display: flex;
+}
+
+#choice {
+    display: flex;
+    flex-direction: column;
+}
+
+#choice div{
+    display: flex;
+    flex-direction: row;
+}
+button{
+    margin-top: 15px;
+    font-size: 16px;
+    margin-left: 20px;
+    background-color: #6e747e;
+    width: 240px;
+    height: auto;
+    color: white;
+}
+
+.div-table p{
+    font-size: 28px;
+    color: #4f5e67;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.head{
+    background-color: #343a3f;
+}
+th{
+    color: white;
+    font-size: 16px;
+    text-align: left;
+    height: 36px;
+    font-weight:900;
+}
+
+table{
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+td{
+    font-size: 14px;
+    text-align: left;
+    height: 24px;
+    
+}
