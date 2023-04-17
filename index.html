@@ -5,23 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link href="index.css" rel="stylesheet">
 </head>
 <body>
     <div id="main">
+        <div id="header"><h1 id="title">DOM manipulation with Forms </h1></div>
+        <p id="description">This is an example of DOM manipulation</p>
+        <div id="body">
         <div class="div-form">
-            <form>
+            
+            <form id="form">
+                <div class="form-group">
                     <p>Form Submission:</p>
-                    <label for="fname">First Name:</label>
-                    <input type="text" id="fname" name="fname" required>
+                    <label for="last-name">First Name:</label>
+                    <input type="text" class="form-control" id="first-name" name="fname" required placeholder="First Name">
+                </div>
+                <div class="form-group">
                     <label for="lname">Last Name:</label>
-                    <input type="text" id="lname" name="lname" required>
-                    <label for="addr1">Address Line 1:</label>
-                    <input type="text" id="addr1" name="addr1" required>
-                    <label for="addr2">Address Line 2:</label>
-                    <input type="text" id="addr2" name="addr2" required>
+                    <input type="text" class="form-control" id="last-name" name="lname" required placeholder="Last Name"> 
+                    </div>
+                    <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea id="address" required placeholder="Address"></textarea>
+                </div>
+                <div class="form-group">
                     <label for="pin">PIN:</label>
-                    <input type="number" id="pin" name="pin" required>
+                    <input type="text" class="form-control" id="pincode" name="pin" required placeholder="Pincode">
+                </div>
+                <div class="form-group"> 
                     <label for="gender">Gender:</label>
                     <div id="gender">
                         
@@ -29,128 +41,65 @@
                         
                         <input type="radio" id="female" name="gender" class="radio" value= "Female"required>Female
                     </div>
+                </div>
+                <div class="form-group">
                     <label>Choice of food :<i>(Must choose at least two out of 5 options)</i></label>
                     <div id="choice">
                         <div>
-                            <input type="checkbox" id="nindian" name="nindian" value="Noth Indian" class="checkbox"><label>North Indian</label>
+                            <input type="checkbox" id="nindian" name="nindian" value="North Indian" class="checkbox">North Indian
                         </div>
                         <div>
-                            <input type="checkbox" id="sindian" name="sindian" value="South Indian" class="checkbox"><label>South Indian</label>
+                            <input type="checkbox" id="sindian" name="sindian" value="South Indian" class="checkbox">South Indian
                         </div>
                         <div>
-                            <input type="checkbox" id="chinese" name="chinese" value="Chinese" class="checkbox"><label>Chinese</label>
+                            <input type="checkbox" id="chinese" name="chinese" value="Chinese" class="checkbox">Chinese
                         </div>
                         <div>
-                            <input type="checkbox" id="japanese" name="japanese" value="Japanese" class="checkbox"><label>Japanese</label>
+                            <input type="checkbox" id="japanese" name="japanese" value="Japanese" class="checkbox">Japanese
                         </div>
                         <div>
-                            <input type="checkbox" id="sea" name="sea" value="Sea Food" class="checkbox"><label>Sea Food</label>
+                            <input type="checkbox" id="sea" name="sea" value="Sea Food" class="checkbox">Sea Food
                         </div>    
                     </div>
+                </div>
+                <div class="form-group">
                     <label for="state">State:</label>
-                    <input type="text" id="state" name="state" required>
+                    <input type="text" class="form-control" id="state" name="state" required placeholder="State">
+                </div>
+                <div class="form-group">
                     <label for="country">Country:</label>
-                    <input type="text" id="country" name="country" required>
-                    <button type="submit" id="button">Submit</button>
-            </form> 
+                    <input type="text" class="form-control" id="country" name="country" required placeholder="Country">
+                </div>
+                    <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+                
+                </div>
+                </form> 
+                <div class="div-table">
+                    <p>Temporary Database</p>
+                    <table class="table">
+                        <thead>
+                            <tr class="head">
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Address</th>
+                                <th>Pincode</th>
+                                <th>Gender</th>
+                                <th>Food</th>
+                                <th>State</th>
+                                <th>Country</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody">
+             
+                        </tbody>
+                    </table>
+                        
+                </div> 
     </div>
-    <div class="div-table">
-        <p>Temporary Database</p>
-        <table>
-            <thead>
-                <tr class="head">
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Address</th>
-                    <th>Pincode</th>
-                    <th>Gender</th>
-                    <th>Food</th>
-                    <th>State</th>
-                    <th>Country</th>
-                </tr>
-            </thead>
-            <tbody id="tbody">
- 
-            </tbody>
-        </table>
-            
-    </div>
+    
+</div>
 </div>
 
 </body>
 <script src="index.js"></script>
-<script>
-    const form = document.querySelector("form");
-    let count = 0;
-    let arr = [];
-    document.getElementById("button").addEventListener("click",function(e){
-    e.preventDefault();
-    const cbox = document.querySelectorAll("input[type='checkbox']");
-    
-
-    for(let i=0;i<cbox.length;i++) {
-        if(cbox[i].checked==true) {
-            count++;
-        }
-    }
-    if(count<2) {
-        alert("please select atleast two options")
-    }
-    else {
-        for(let i=0;i<cbox.length;i++) {
-        if(cbox[i].checked==true) {
-            arr.push(cbox[i].value);
-        }
-       count = 0;
-       arr.length = 0;
-    }
-
-    
-    
-    
-    
-    }
-   
-    
-})
-</script>
-<script>
-    function createRow(){
-        const tr = document.createElement("tr");
-        const td1 = document.createElement("td");
-        td1.textContent = document.getElementById("fname").value;
-        alert(td1.textContent)
-        const td2 = document.createElement("td");
-        td2.textContent = document.getElementById("lname").value;
-        const td3 = document.createElement("td");
-        td3.textContent = document.getElementById("addr1").value+" "+document.getElementById("addr2").value;
-        const td4 = document.createElement("td");
-        td4.textContent = document.getElementById("pincode").value;
-        const td5 = document.createElement("td");
-        const male = document.getElementById("male");
-        if(male.checked == true) {
-            td5.textContent = "Male"
-        }
-        else {
-            td5.textContent = "Female"
-        }
-        const td6 = document.createElement("td");
-        td6.textContent = arr.join(",");
-        const td7 = document.createElement("td");
-        td7.textContent = document.getElementById("state")
-        const td8 = document.createElement("td");
-        td7.textContent = document.getElementById("country")
-        tr.append(td1);
-        tr.append(td2);
-        tr.append(td3);
-        tr.append(td4);
-        tr.append(td5);
-        tr.append(td6);
-        tr.append(td7);
-        tr.append(td8);
-
-        const tbody = document.querySelector("tbody");
-        tbody.append(tr);
-    }
-</script>
 </html>
